@@ -1,0 +1,216 @@
+[gd_scene load_steps=27 format=3 uid="uid://bsk6fixp88s6d"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_lwiod"]
+[ext_resource type="Texture2D" uid="uid://cybue4o3rhn06" path="res://Assets/Sprites/Player/attack.png" id="2_ikp3q"]
+[ext_resource type="Texture2D" uid="uid://d0ytubjbhmpse" path="res://Assets/Sprites/Player/idle_run.png" id="3_dp858"]
+[ext_resource type="Texture2D" uid="uid://si3lsv8e7url" path="res://Assets/Sprites/Player/jump.png" id="4_a1kpd"]
+[ext_resource type="Texture2D" uid="uid://c1c5yuj2aa5xf" path="res://Assets/Sprites/Player/slide.png" id="5_tnbdv"]
+[ext_resource type="Texture2D" uid="uid://dippdmtg18ki4" path="res://Assets/Sprites/Player/wallslide.png" id="6_qskck"]
+[ext_resource type="Texture2D" uid="uid://bb8xut77na1ki" path="res://Assets/Sprites/Player/pulse.png" id="7_fb6mu"]
+[ext_resource type="PackedScene" uid="uid://ccamlqucobk1f" path="res://Scenes/health_component.tscn" id="8_d0d6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4vai"]
+atlas = ExtResource("2_ikp3q")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdxvi"]
+atlas = ExtResource("2_ikp3q")
+region = Rect2(128, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl3l1"]
+atlas = ExtResource("2_ikp3q")
+region = Rect2(256, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri6pp"]
+atlas = ExtResource("3_dp858")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g13r"]
+atlas = ExtResource("3_dp858")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp453"]
+atlas = ExtResource("3_dp858")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_souq1"]
+atlas = ExtResource("3_dp858")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjite"]
+atlas = ExtResource("3_dp858")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0hu46"]
+atlas = ExtResource("3_dp858")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmtol"]
+atlas = ExtResource("3_dp858")
+region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv5kt"]
+atlas = ExtResource("3_dp858")
+region = Rect2(256, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy6x2"]
+atlas = ExtResource("3_dp858")
+region = Rect2(320, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4s8l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4vai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdxvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl3l1")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ri6pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g13r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp453")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_a1kpd")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_souq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjite")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0hu46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmtol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv5kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy6x2")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tnbdv")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qskck")
+}],
+"loop": true,
+"name": &"wallslide",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqwl6"]
+size = Vector2(18, 39.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5n6tl"]
+size = Vector2(32.5, 21.5609)
+
+[sub_resource type="Gradient" id="Gradient_fyfgi"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4kqks"]
+gradient = SubResource("Gradient_fyfgi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m2td4"]
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 0.6
+color_ramp = SubResource("GradientTexture1D_4kqks")
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 9
+position = Vector2(0, -16)
+collision_mask = 4
+safe_margin = 0.1
+script = ExtResource("1_lwiod")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 16)
+sprite_frames = SubResource("SpriteFrames_p4s8l")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_gqwl6")
+
+[node name="Hitbox" type="Area2D" parent="."]
+process_mode = 4
+visible = false
+collision_layer = 0
+collision_mask = 10
+
+[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(23.75, -6.0755)
+scale = Vector2(1.10612, 1.10612)
+shape = SubResource("RectangleShape2D_5n6tl")
+debug_color = Color(0.85583, 0.313232, 0.499922, 0.42)
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpBuffer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Pulse" type="GPUParticles2D" parent="."]
+position = Vector2(-45, 0)
+emitting = false
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_m2td4")
+texture = ExtResource("7_fb6mu")
+lifetime = 0.5
+one_shot = true
+speed_scale = 2.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("8_d0d6r")]
+max_health = 3.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_end_attack"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

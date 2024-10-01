@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm6ulcor3ms2j"]
+
+[ext_resource type="Texture2D" uid="uid://bpi7uin2yki1b" path="res://Assets/Sprites/bullet_tesst.png" id="1_w6gef"]
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_ytkpj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khtiw"]
+size = Vector2(5, 4.98438)
+
+[node name="Bullet" type="Area2D"]
+scale = Vector2(3, 3)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_ytkpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w6gef")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_khtiw")
+
+[node name="SelfDestruct" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SelfDestruct" to="." method="_on_self_destruct_timeout"]
