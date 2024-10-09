@@ -32,11 +32,11 @@ z_index = 10
 scale = Vector2(0.3, 0.3)
 emitting = false
 amount = 70
-process_material = SubResource("ParticleProcessMaterial_6umln")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_6umln")
 script = ExtResource("1_2yk46")
 
 [connection signal="finished" from="." to="." method="_on_finished"]
