@@ -177,7 +177,7 @@ position = Vector2(640, 360)
 texture = ExtResource("4_e6bjo")
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_1lbvk")]
-zoom = Vector2(1.8, 1.8)
+zoom = Vector2(2, 2)
 limit_left = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 9.0

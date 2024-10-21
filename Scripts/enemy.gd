@@ -49,6 +49,7 @@ func _on_shoot_timer_timeout() -> void:
 	bullet.sender = self
 	add_child(bullet)
 	if queue_patrol:
+		print("patrol ok")
 		queue_patrol = false
 		state = Patrol
 		target = null
@@ -59,6 +60,7 @@ func _on_player_check_body_entered(body: Node2D) -> void:
 	print("in")
 	target = body
 	state = Aiming
+	queue_patrol = false;
 	shoot_timer.start()
 
 
