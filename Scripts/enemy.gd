@@ -44,6 +44,9 @@ func _on_health_component_update_health(health: Variant) -> void:
 
 
 func _on_shoot_timer_timeout() -> void:
+	shoot_timer.stop()
+	shoot_timer.wait_time = 1
+	shoot_timer.start()
 	var bullet = BULLET.instantiate()
 	bullet.target = target
 	bullet.sender = self
@@ -54,6 +57,7 @@ func _on_shoot_timer_timeout() -> void:
 		state = Patrol
 		target = null
 		shoot_timer.stop()
+		shoot_timer.wait_time = 0.4
 
 
 func _on_player_check_body_entered(body: Node2D) -> void:

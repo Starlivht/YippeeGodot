@@ -2,7 +2,7 @@ extends Area2D
 
 var target := Node2D
 var sender := Node2D
-var speed := 2500
+var speed := 1200
 var trajectory : Vector2
 const EXPLOSION = preload("res://Scenes/explosion.tscn")
 var explosion_strenght = 20

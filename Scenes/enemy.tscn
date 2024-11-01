@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://cmx6ehdgnjm6e"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_cibba"]
-[ext_resource type="Texture2D" uid="uid://glwokuo00ilw" path="res://icon.svg" id="1_fp38i"]
 [ext_resource type="Shader" path="res://Shaders/hitflash.gdshader" id="2_ngaig"]
+[ext_resource type="Texture2D" uid="uid://ns8vu2c57vng" path="res://Assets/Sprites/enemy1.png" id="3_v3c0h"]
 [ext_resource type="PackedScene" uid="uid://ccamlqucobk1f" path="res://Scenes/health_component.tscn" id="4_cow7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14tui"]
@@ -14,7 +14,7 @@ shader = ExtResource("2_ngaig")
 shader_parameter/active = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2wx6"]
-size = Vector2(128, 128)
+size = Vector2(20, 53)
 
 [sub_resource type="Animation" id="Animation_qr3ed"]
 resource_name = "hitflash"
@@ -49,8 +49,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84gj5"]
 _data = {
-&"hitflash": SubResource("Animation_qr3ed"),
-&"RESET": SubResource("Animation_jinrd")
+&"RESET": SubResource("Animation_jinrd"),
+&"hitflash": SubResource("Animation_qr3ed")
 }
 
 [node name="Enemy" type="CharacterBody2D"]
@@ -59,17 +59,19 @@ collision_mask = 4
 script = ExtResource("1_cibba")
 
 [node name="PlayerCheck" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
-scale = Vector2(13, 6.5)
+scale = Vector2(3.5, 1.751)
 shape = SubResource("RectangleShape2D_14tui")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_k0oag")
-texture = ExtResource("1_fp38i")
+texture = ExtResource("3_v3c0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4.5)
 shape = SubResource("RectangleShape2D_c2wx6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -82,12 +84,12 @@ position = Vector2(0, 74)
 max_health = 1.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-68, 0)
-target_position = Vector2(0, 76)
+position = Vector2(-10, 0)
+target_position = Vector2(0, 33)
 collision_mask = 4
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.4
 
 [connection signal="body_entered" from="PlayerCheck" to="." method="_on_player_check_body_entered"]
 [connection signal="body_exited" from="PlayerCheck" to="." method="_on_player_check_body_exited"]

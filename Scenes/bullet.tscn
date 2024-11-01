@@ -7,7 +7,6 @@
 size = Vector2(5, 4.98438)
 
 [node name="Bullet" type="Area2D"]
-scale = Vector2(3, 3)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_ytkpj")

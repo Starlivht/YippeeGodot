@@ -189,7 +189,6 @@ tile_map_data = PackedByteArray("AAAAAA8AAAABAAAAAAAHAA8AAAABAAAAAAAGAA8AAAABAAA
 tile_set = SubResource("TileSet_d3grd")
 
 [node name="Enemy" parent="." instance=ExtResource("8_chqj3")]
-position = Vector2(618, 24)
-scale = Vector2(0.281929, 0.281929)
+position = Vector2(618, 14)
 
 [connection signal="call_freeze_frame" from="Player" to="." method="frameFreeze"]
