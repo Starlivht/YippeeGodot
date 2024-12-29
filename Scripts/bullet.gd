@@ -34,3 +34,4 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		#Kill
 		body.health_component.take_damage(1)
+		queue_free()
