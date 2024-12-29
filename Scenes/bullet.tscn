@@ -7,11 +7,13 @@
 size = Vector2(5, 4.98438)
 
 [node name="Bullet" type="Area2D"]
+scale = Vector2(1.2, 1.2)
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_ytkpj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_w6gef")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

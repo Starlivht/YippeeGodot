@@ -260,6 +260,6 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		enemies_already_hit.append(area)
 		area.target = area.sender
 		area.sender = self
-		area.speed *= 3
+		area.speed *= 1.2
 		area.change_trajectory()
 		call_freeze_frame.emit(0.05, .5)
