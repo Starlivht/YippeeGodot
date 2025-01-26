@@ -201,10 +201,10 @@ one_shot = true
 position = Vector2(-45, 0)
 emitting = false
 amount = 2
+texture = ExtResource("7_fb6mu")
 lifetime = 0.5
 one_shot = true
 speed_scale = 2.0
-texture = ExtResource("7_fb6mu")
 process_material = SubResource("ParticleProcessMaterial_m2td4")
 
 [node name="HealthComponent" parent="." instance=ExtResource("8_d0d6r")]

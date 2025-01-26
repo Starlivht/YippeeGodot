@@ -135,6 +135,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_d8rc6")
 
 [node name="Game" type="Node2D"]
+position = Vector2(1, 0)
 script = ExtResource("1_2o354")
 
 [node name="Player" parent="." instance=ExtResource("1_a7irx")]
