@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6e73dap562ad"]
+
+[ext_resource type="Script" uid="uid://cl05ko5d6sww3" path="res://Scripts/drone.gd" id="1_ws5iu"]
+[ext_resource type="PackedScene" uid="uid://ccamlqucobk1f" path="res://Scenes/health_component.tscn" id="2_o36xs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f5jqk"]
+size = Vector2(40, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ws5iu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o36xs"]
+
+[node name="drone" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_ws5iu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_f5jqk")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+position = Vector2(20, 20)
+scale = Vector2(35, 35)
+shape = SubResource("CircleShape2D_ws5iu")
+
+[node name="RangeCheck" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangeCheck"]
+position = Vector2(20, 20)
+scale = Vector2(22.6013, 22.6013)
+shape = SubResource("CircleShape2D_o36xs")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_o36xs")]
+max_health = 1.0
+
+[connection signal="body_entered" from="PlayerCheck" to="." method="_on_player_check_body_entered"]
+[connection signal="body_exited" from="PlayerCheck" to="." method="_on_player_check_body_exited"]
+[connection signal="body_entered" from="RangeCheck" to="." method="_on_range_check_body_entered"]
+[connection signal="body_exited" from="RangeCheck" to="." method="_on_range_check_body_exited"]
+[connection signal="hp_depleted" from="HealthComponent" to="." method="_on_health_component_hp_depleted"]

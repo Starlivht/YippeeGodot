@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bl1c1rdmss1ln"]
+[gd_scene load_steps=12 format=4 uid="uid://bl1c1rdmss1ln"]
 
 [ext_resource type="Script" uid="uid://10k1axedpc2i" path="res://Scripts/game.gd" id="1_2o354"]
 [ext_resource type="PackedScene" uid="uid://bsk6fixp88s6d" path="res://Scenes/player.tscn" id="1_a7irx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://5mpwdqxrmqex" path="res://Assets/Sprites/Background/towers.png" id="5_e0146"]
 [ext_resource type="Texture2D" uid="uid://blaxv337s68w6" path="res://Assets/Sprites/Tilemaps/tilemap.png" id="7_kntb7"]
 [ext_resource type="PackedScene" uid="uid://cmx6ehdgnjm6e" path="res://Scenes/enemy.tscn" id="8_chqj3"]
+[ext_resource type="PackedScene" uid="uid://c6e73dap562ad" path="res://Scenes/drone.tscn" id="9_vy04p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8rc6"]
 texture = ExtResource("7_kntb7")
@@ -190,5 +191,9 @@ tile_set = SubResource("TileSet_d3grd")
 
 [node name="Enemy" parent="." instance=ExtResource("8_chqj3")]
 position = Vector2(618, 14)
+
+[node name="drone" parent="." instance=ExtResource("9_vy04p")]
+position = Vector2(269, -89)
+scale = Vector2(0.681822, 0.681822)
 
 [connection signal="call_freeze_frame" from="Player" to="." method="frameFreeze"]
